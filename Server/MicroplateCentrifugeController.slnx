@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MicroplateCentrifugeController.Features/MicroplateCentrifugeController.Features.csproj" />
+  <Project Path="MicroplateCentrifugeController.Server/MicroplateCentrifugeController.Server.csproj" />
+</Solution>

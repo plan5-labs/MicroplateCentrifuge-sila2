@@ -1,0 +1,116 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "MicroplateCentrifugeCommandExecutor";
+
+service MicroplateCentrifugeCommandExecutorService {
+    rpc OpenDoor(OpenDoorRequest) returns (OpenDoorResponse);
+    rpc CloseDoor(CloseDoorRequest) returns (CloseDoorResponse);
+    rpc SpinCycle(SpinCycleRequest) returns (SpinCycleResponse);
+    rpc StopSpinCycle(StopSpinCycleRequest) returns (StopSpinCycleResponse);
+    rpc Reset(ResetRequest) returns (ResetResponse);
+    rpc EnumerateProfiles(EnumerateProfilesRequest) returns (EnumerateProfilesResponse);
+    rpc Home(HomeRequest) returns (HomeResponse);
+    rpc Park(ParkRequest) returns (ParkResponse);
+    rpc LoadPlate(LoadPlateRequest) returns (LoadPlateResponse);
+    rpc UnloadPlate(UnloadPlateRequest) returns (UnloadPlateResponse);
+    rpc GetActiveXVersion(GetActiveXVersionRequest) returns (GetActiveXVersionResponse);
+    rpc GetCentrifugeActiveXVersion(GetCentrifugeActiveXVersionRequest) returns (GetCentrifugeActiveXVersionResponse);
+    rpc GetCentrifugeHardwareVersion(GetCentrifugeHardwareVersionRequest) returns (GetCentrifugeHardwareVersionResponse);
+    rpc GetFirmwareVersion(GetFirmwareVersionRequest) returns (GetFirmwareVersionResponse);
+    rpc GetHardwareVersion(GetHardwareVersionRequest) returns (GetHardwareVersionResponse);
+    rpc SubscribeStatus(SubscribeStatusRequest) returns (stream SubscribeStatusResponse);
+}
+
+message OpenDoorRequest {
+    int32 bucketNumber = 1;
+}
+message OpenDoorResponse {}
+
+message CloseDoorRequest {}
+message CloseDoorResponse {}
+
+message SpinCycleRequest {
+    double velocityPercent = 1;
+    double accelerationPercent = 2;
+    double decelerationPercent = 3;
+    int32 timerMode = 4;
+    int32 time = 5;
+    int32 bucketNumberToLoad = 6;
+    int32 bucketNumberToUnload = 7;
+    double gripperOffsetToLoad = 8;
+    double gripperOffsetToUnload = 9;
+    double plateHeightToLoad = 10;
+    double plateHeightToUnload = 11;
+    int32 speedToLoad = 12;
+    int32 speedToUnload = 13;
+    int32 optionsToLoad = 14;
+    int32 optionsToUnload = 15;
+}
+message SpinCycleResponse {}
+
+message StopSpinCycleRequest {
+    int32 bucketNumber = 1;
+}
+message StopSpinCycleResponse {}
+
+message ResetRequest {}
+message ResetResponse {}
+
+message EnumerateProfilesRequest {}
+message EnumerateProfilesResponse {
+    repeated string profileNames = 1;
+}
+
+message HomeRequest {}
+message HomeResponse {}
+
+message ParkRequest {}
+message ParkResponse {}
+
+message LoadPlateRequest {
+    int32 bucketNumber = 1;
+    double gripperOffset = 2;
+    double plateHeight = 3;
+    int32 speed = 4;
+    int32 options = 5;
+}
+message LoadPlateResponse {}
+
+message UnloadPlateRequest {
+    int32 bucketNumber = 1;
+    double gripperOffset = 2;
+    double plateHeight = 3;
+    int32 speed = 4;
+    int32 options = 5;
+}
+message UnloadPlateResponse {}
+
+message GetActiveXVersionRequest {}
+message GetActiveXVersionResponse {
+    string activeXVersion = 1;
+}
+
+message GetCentrifugeActiveXVersionRequest {}
+message GetCentrifugeActiveXVersionResponse {
+    string centrifugeActiveXVersion = 1;
+}
+
+message GetCentrifugeHardwareVersionRequest {}
+message GetCentrifugeHardwareVersionResponse {
+    string centrifugeHardwareVersion = 1;
+}
+
+message GetFirmwareVersionRequest {}
+message GetFirmwareVersionResponse {
+    string firmwareVersion = 1;
+}
+
+message GetHardwareVersionRequest {}
+message GetHardwareVersionResponse {
+    string hardwareVersion = 1;
+}
+
+message SubscribeStatusRequest {}
+message SubscribeStatusResponse {
+    int32 status = 1;
+}
