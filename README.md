@@ -408,3 +408,9 @@ You can find a simple script at `PythonClient/microplate_centrifuge_controller/e
 pip install .
 ```
 - Run your script
+
+## License
+
+MIT License. Copyright (c) 2025-2026 RIKEN. See [LICENSE](LICENSE).
+
+Third-party components are subject to their own licenses (see `Server/Licenses/`). The Agilent ActiveX controls used by the command executor are not included in this repository and are subject to Agilent's license terms.
